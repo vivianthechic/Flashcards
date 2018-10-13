@@ -4,7 +4,6 @@
 Simple application that shows a question and presents an answer when tapped.
 
 ### App Walk-though
-`TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
 
 <img src="https://gph.is/2EjFqrW" width=200><br>
 
