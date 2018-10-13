@@ -5,7 +5,7 @@ Simple application that shows a question and presents an answer when tapped.
 
 ### App Walk-though
 
-<img src="https://gph.is/2EjFqrW" width=200><br>
+<img src="https://media.giphy.com/media/MX4xODo2aMTw1xeoAq/giphy.gif" width=200><br>
 
 
 ## Required
