@@ -5,10 +5,14 @@ Simple application that shows a question and presents an answer when tapped.
 
 ### App Walk-though
 Required:
+
 <img src="https://media.giphy.com/media/MX4xODo2aMTw1xeoAq/giphy.gif" width=200><br>
+
 Optional:
+
 <img src="https://media.giphy.com/media/7zy0cLhMkXJfuKxdIe/giphy.gif" width=200><br>
 <img src="https://media.giphy.com/media/3HBR7AfIZoqAl2e10Y/giphy.gif" width=200><br>
+
 
 ## Required
 - [x] Create New Project in Xcode
