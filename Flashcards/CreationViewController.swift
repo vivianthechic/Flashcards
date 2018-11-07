@@ -40,14 +40,18 @@ class CreationViewController: UIViewController {
         let answerText = answerTextField.text
         let choiceOneText = choiceOneTextField.text
         let choiceTwoText = choiceTwoTextField.text
-        if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty{
-            let alert = UIAlertController(title: "Missing Text", message: "You need to enter both a question and an answer", preferredStyle: .alert)
+        if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty {
+            let alert = UIAlertController(title: "Missing Text", message: "You need to fill all the text fields", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(okAction)
             present(alert,animated:true)
         }
         else{
-            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, choice1: choiceOneText!, choice2: choiceTwoText!)
+            var isExisting = false
+            if initialQuestion != nil {
+                isExisting = true
+            }
+            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, isExisting: isExisting, choice1: choiceOneText!, choice2: choiceTwoText!)
             dismiss(animated:true)
         }
     }
