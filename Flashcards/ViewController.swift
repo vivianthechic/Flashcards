@@ -69,12 +69,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapOnFlashcard(_ sender: Any) {
-        if frontLabel.isHidden {
-            frontLabel.isHidden = false
-        }
-        else{
-            frontLabel.isHidden = true
-        }
+        flipFlashcard()
+    }
+    
+    func flipFlashcard(){
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {
+            if self.frontLabel.isHidden {
+                self.frontLabel.isHidden = false
+            }
+            else{
+                self.frontLabel.isHidden = true
+            }
+        })
+        
     }
     
     func updateFlashcard(question: String, answer: String, isExisting: Bool, choice1: String, choice2: String) {
@@ -133,14 +140,40 @@ class ViewController: UIViewController {
     
     @IBAction func didTapOnNext(_ sender: Any) {
         currentIndex = currentIndex + 1
-        updateLabels()
         updateNextPrevButtons()
+        animateCardOut(isNext: true)
     }
     
     @IBAction func didTapOnPrev(_ sender: Any) {
         currentIndex = currentIndex - 1
-        updateLabels()
         updateNextPrevButtons()
+        animateCardOut(isNext: false)
+    }
+    
+    func animateCardOut(isNext: Bool){
+        UIView.animate(withDuration: 0.3, animations: {
+            if(isNext){
+                self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+            }
+            else{
+                self.card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+            }
+        }, completion: { finished in
+            self.updateLabels()
+            self.animateCardIn(isNext: isNext)
+        })
+    }
+    
+    func animateCardIn(isNext: Bool){
+        if(isNext){
+            card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        }
+        else{
+            card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        }
+        UIView.animate(withDuration: 0.3){
+            self.card.transform = CGAffineTransform.identity
+        }
     }
     
     func saveAllFlashcardsToDisk(){
